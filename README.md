@@ -8,5 +8,6 @@ Future additions:
   - "view map" action
   - "end hunt" action that totals and reports final score
   - random item placement in world
+  - make game prompts more user-friendly (add list of available items to pick up and drop in prompt...)
   - larger world / more tiles / more items
   - graphical interface for more engaging play
