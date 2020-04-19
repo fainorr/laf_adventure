@@ -1,0 +1,7 @@
+      bushkill_lot
+  research_lab    fisher_field	cht
+  rockwell  acopian markle
+  watson    quad  farinon starting_room
+  march_field		pardee	watson_courts
+marquis kirby_hall		zeta_psi
+  south		arts_campus
