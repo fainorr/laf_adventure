@@ -46,6 +46,7 @@ class map_tile(object):
             moves.append(actions.check_place_for_items())
             moves.append(actions.drop_item())
             moves.append(actions.pickup_item())
+            moves.append(actions.end_hunt())
 
         return moves
 
@@ -90,7 +91,7 @@ class farinon(campus_space):
 
 class quad(campus_space):
     def __init__(self, x, y):
-        self.id = "The Quad"
+        self.id = "the Quad"
         super(quad, self).__init__(x, y, [items.adirondack_chair("maroon"), items.hammock()])
 
     def intro_text(self):

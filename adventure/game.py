@@ -29,11 +29,16 @@ def play():
         for action in available_actions:
             print(action)
 
-        action_input = str(raw_input("Action: "))
+        action_input = str(raw_input("\nACTION: "))
+
+        action_match = False
         for action in available_actions:
             if action_input == action.hotkey:
                 player.do_action(action, **action.kwargs)
-                break
+                action_match = True
+
+        if action_match == False:
+            print("\n        ERROR: '" + action_input + "' is not a valid action in " + tile_name.id + "...\n")
 
 
 if __name__ == "__main__":

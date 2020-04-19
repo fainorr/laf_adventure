@@ -61,3 +61,11 @@ class drop_item(action):
 class pickup_item(action):
 	def __init__(self):
 		super(pickup_item,self).__init__(name='pick up item', method=Player.pickup, hotkey="p")
+
+
+# GAME ACTIONS
+# ------------
+
+class end_hunt(action):
+	def __init__(self):
+		super(end_hunt,self).__init__(name='treasure hunt', method=Player.end, hotkey="end")
