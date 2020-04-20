@@ -10,7 +10,7 @@ import random
 class Player():
 
 	def __init__(self):
-		self.inventory = [items.phone()]
+		self.inventory = []
 		self.location_x, self.location_y = world.starting_position
 		self.hunt_over = False
 
@@ -65,7 +65,7 @@ class Player():
 
 		print("\n        CURRENT INVENTORY: (" + str(inv_filled) + "/100 full)")
 		for item in self.inventory:
-			print("         - " + item.__str__())
+			print("        - " + item.__str__())
 		print("\n")
 
 

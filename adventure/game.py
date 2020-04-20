@@ -20,12 +20,7 @@ def play():
 
     if action_input == "yes":
         os.system('cls' if os.name == 'nt' else 'clear')
-        # count characters in tile_name.id and print intro text
-        num_char = len(tile_name.id)
-        print("\n" + "-"*(num_char+6))
-        print("-- " + tile_name.id + " --")
-        print("-"*(num_char+6))
-        print(tile_name.intro_text())
+        player.move(0,0)
     else:
         print("\nGoodbye!\n")
         player.hunt_over = True

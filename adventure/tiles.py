@@ -43,33 +43,45 @@ class map_tile(object):
         self.id = id
 
         moves = self.adjacent_moves()
-
-        if self.id == "Gates":
-            pass
-        else:
-            moves.append(actions.drop_item())
-            moves.append(actions.pickup_item())
-            moves.append(actions.end_hunt())
+        moves.append(actions.drop_item())
+        moves.append(actions.pickup_item())
+        moves.append(actions.end_hunt())
 
         return moves
 
 
-class starting_room(map_tile):
+class campus_space(map_tile, object):
+    def __init__(self, x, y, available_items):
+        self.items = available_items
+        super(campus_space, self).__init__(x, y)
+        super(campus_space, self).available_actions(self.id)
+
+
+# STARTING ROOM: GATES
+# --------------------
+
+class starting_room(campus_space):
     def __init__(self, x, y):
         self.id = "Gates"
-        super(starting_room, self).__init__(x, y)
-        super(starting_room, self).available_actions(self.id)
+        tile_items = [items.phone()]
+
+        super(starting_room, self).__init__(x, y, tile_items)
 
     def intro_text(self):
         return """
         You wake up in Gates hall, your dorm room... Today is the day.
         By sunset, you must collect Lafayette's most valuable items - it's President Byerly's request.
         As you exit, you start taking in your environment like never before.
+
+        Before you leave, remember to take your phone! Try picking it up with 'p'.
         """
 
     def welcome_text(self):
         return """
+
+        ----------------------------------------------
         Welcome to the Virtual Lafyette Treasure Hunt!
+        ----------------------------------------------
 
         Fit for anyone familiar with the quips and quirks of Lafayette College, this interactive
         choose-your-own-adventure will take you all around campus (as if you were there in person!).
@@ -79,13 +91,6 @@ class starting_room(map_tile):
         in your backpack - you only have limited inventory space. When your search is complete, you
         will present your bounty to President Byerly for her to judge. Good luck!
         """
-
-
-class campus_space(map_tile, object):
-    def __init__(self, x, y, available_items):
-        self.items = available_items
-        super(campus_space, self).__init__(x, y)
-        super(campus_space, self).available_actions(self.id)
 
 
 # FARINON
@@ -119,7 +124,7 @@ class quad(campus_space):
         tile_items = [items.adirondack_chair(), items.hammock(), items.quadler(), items.quad_elm(), items.beer_can()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)):
+        for pick in range(0,len(tile_items)-1):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -141,7 +146,7 @@ class pardee(campus_space):
         tile_items = [items.stained_glass(), items.tenured_professor(), items.pencil(), items.fire_extinguisher(), items.textbook()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)):
+        for pick in range(0,len(tile_items)-1):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
