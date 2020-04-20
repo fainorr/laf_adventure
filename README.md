@@ -6,7 +6,8 @@ More specifically, your task is a _treasure hunt_, one of collecting the greates
 
 
 ## RUN GAME:
-[![Run on Repl.it](https://repl.it/badge/github/fainorr/laf_adventure)](https://repl.it/github/fainorr/laf_adventure)
+
+[Start Game](https://lafadventure.fainorr.repl.run/)
 
 
 ## Future additions:

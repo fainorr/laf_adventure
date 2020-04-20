@@ -16,9 +16,9 @@ def play():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print(tile_name.welcome_text())
-    action_input = str(raw_input("\nPlease type 'yes' to start your treasure hunt: "))
+    action_input = str(raw_input("\nPlease type 'go' to start your treasure hunt: "))
 
-    if action_input == "yes":
+    if action_input == "go":
         os.system('cls' if os.name == 'nt' else 'clear')
         player.move(0,0)
     else:
