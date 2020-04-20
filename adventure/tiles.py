@@ -4,6 +4,7 @@
 # --------------------------------------------
 
 import items, actions, world
+import random
 
 # The base class for all map tiles
 
@@ -22,13 +23,17 @@ class map_tile(object):
         moves = []
 
         if world.tile_exists(self.x + 1, self.y):
-            moves.append(actions.action_move_east())
+            tile_name = world.tile_exists(self.x + 1, self.y)
+            moves.append(actions.action_move_east(tile_name))
         if world.tile_exists(self.x - 1, self.y):
-            moves.append(actions.action_move_west())
+            tile_name = world.tile_exists(self.x - 1, self.y)
+            moves.append(actions.action_move_west(tile_name))
         if world.tile_exists(self.x, self.y - 1):
-            moves.append(actions.action_move_north())
+            tile_name = world.tile_exists(self.x, self.y - 1)
+            moves.append(actions.action_move_north(tile_name))
         if world.tile_exists(self.x, self.y + 1):
-            moves.append(actions.action_move_south())
+            tile_name = world.tile_exists(self.x, self.y + 1)
+            moves.append(actions.action_move_south(tile_name))
 
         return moves
 
@@ -38,12 +43,10 @@ class map_tile(object):
         self.id = id
 
         moves = self.adjacent_moves()
-        moves.append(actions.view_inventory())
 
-        if self.id == "Starting Room":
+        if self.id == "Gates":
             pass
         else:
-            moves.append(actions.check_place_for_items())
             moves.append(actions.drop_item())
             moves.append(actions.pickup_item())
             moves.append(actions.end_hunt())
@@ -53,7 +56,7 @@ class map_tile(object):
 
 class starting_room(map_tile):
     def __init__(self, x, y):
-        self.id = "Starting Room"
+        self.id = "Gates"
         super(starting_room, self).__init__(x, y)
         super(starting_room, self).available_actions(self.id)
 
@@ -62,6 +65,19 @@ class starting_room(map_tile):
         You wake up in Gates hall, your dorm room... Today is the day.
         By sunset, you must collect Lafayette's most valuable items - it's President Byerly's request.
         As you exit, you start taking in your environment like never before.
+        """
+
+    def welcome_text(self):
+        return """
+        Welcome to the Virtual Lafyette Treasure Hunt!
+
+        Fit for anyone familiar with the quips and quirks of Lafayette College, this interactive
+        choose-your-own-adventure will take you all around campus (as if you were there in person!).
+
+        More specifically, your task is a treasure hunt, one of collecting the greatest riches the
+        campus has to offer.  You will need to make choices about where to travel and what to keep
+        in your backpack - you only have limited inventory space. When your search is complete, you
+        will present your bounty to President Byerly for her to judge. Good luck!
         """
 
 
@@ -78,7 +94,15 @@ class campus_space(map_tile, object):
 class farinon(campus_space):
     def __init__(self, x, y):
         self.id = "Farinon"
-        super(farinon, self).__init__(x, y, [items.banner()])
+        tile_items = [items.banner()]
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(farinon, self).__init__(x, y, chosen_items)
 
     def intro_text(self):
         return """
@@ -91,8 +115,16 @@ class farinon(campus_space):
 
 class quad(campus_space):
     def __init__(self, x, y):
-        self.id = "the Quad"
-        super(quad, self).__init__(x, y, [items.adirondack_chair("maroon"), items.hammock()])
+        self.id = "The Quad"
+        tile_items = [items.adirondack_chair(), items.hammock(), items.quadler(), items.quad_elm(), items.beer_can()]
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(quad, self).__init__(x, y, chosen_items)
 
     def intro_text(self):
         return """
@@ -106,7 +138,15 @@ class quad(campus_space):
 class pardee(campus_space):
     def __init__(self, x, y):
         self.id = "Pardee"
-        super(pardee, self).__init__(x, y, [items.tenured_professor()])
+        tile_items = [items.stained_glass(), items.tenured_professor(), items.pencil(), items.fire_extinguisher(), items.textbook()]
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(pardee, self).__init__(x, y, chosen_items)
 
     def intro_text(self):
         return """

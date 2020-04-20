@@ -3,13 +3,14 @@
 # characterize the player and his/her inventory
 # ---------------------------------------------
 
+import os
 import items, world
 import random
 
 class Player():
 
 	def __init__(self):
-		self.inventory = [items.textbook("math"), items.phone("Android")]
+		self.inventory = [items.phone()]
 		self.location_x, self.location_y = world.starting_position
 		self.hunt_over = False
 
@@ -19,7 +20,7 @@ class Player():
 			action_method(**kwargs)
 
 
-	# move to adjacent tile
+	# MOVE TO ADJACENT TILE
 	# ---------------------
 
 	def move(self, dx, dy):
@@ -28,12 +29,17 @@ class Player():
 
 		tile_name = world.tile_exists(self.location_x, self.location_y)
 
+		os.system('cls' if os.name == 'nt' else 'clear')
+
 		# count characters in tile_name.id and print intro text
 		num_char = len(tile_name.id)
 		print("\n" + "-"*(num_char+6))
 		print("-- " + tile_name.id + " --")
 		print("-"*(num_char+6))
 		print(tile_name.intro_text())
+
+		self.check_for_items()
+		self.print_inventory()
 
 	def move_north(self):
 		self.move(dx=0, dy=-1)
@@ -48,27 +54,31 @@ class Player():
 		self.move(dx=-1, dy=0)
 
 
-	# view inventory
+	# VIEW INVENTORY
 	# --------------
 
 	def print_inventory(self):
-		print("\n        -=( INVENTORY ) =- \n")
+
+		inv_filled = 0
 		for item in self.inventory:
-			print("        " + item.__str__())
+			inv_filled += item.size
+
+		print("\n        CURRENT INVENTORY: (" + str(inv_filled) + "/100 full)")
+		for item in self.inventory:
+			print("         - " + item.__str__())
 		print("\n")
 
 
-	# check tile for items
+	# CHECK TILE FOR ITEMS
 	# --------------------
 
 	def check_for_items(self):
 
 		tile_name = world.tile_exists(self.location_x, self.location_y)
 
-		print("\n        " + tile_name.id + " contains:")
+		print("        " + tile_name.id.upper() + " CONTAINS:")
 		for item in range(0,len(tile_name.items)):
 			print("        - " + tile_name.items[item].__str__())
-		print("\n")
 
 
 	# DROP ITEM FROM INVENTORY
@@ -84,36 +94,42 @@ class Player():
 		index = 0
 
 		if num_items > 0:
-			for item in self.inventory:
-				index += 1
-				if index < num_items:
-					items_for_drop += " '" + item.name + "'"
-					if num_items > 2:
-						items_for_drop += ","
-				else:
-					items_for_drop += " or '" + item.name + "'"
+			if num_items > 1:
+				for item in self.inventory:
+					index += 1
+					if index < num_items:
+						items_for_drop += " '" + item.name + "'"
+						if num_items > 2:
+							items_for_drop += ","
+					else:
+						items_for_drop += " or '" + item.name + "'"
+			else:
+				items_for_drop += " '" + self.inventory[0].name + "'"
 
 			# show player available items and request string input of choice
-			print("\n        (options are:" + items_for_drop + ")")
+			print("\n        (options include:" + items_for_drop + ")")
 
 			requested_drop = raw_input("\n        DROP - type the name of item you would like to drop: ")
 			item_match = False
 
-			# check choice against tile's items; if match, remove from inventory and add to tile
+			# check choice against tile's items
 			for item in self.inventory:
 				if requested_drop.lower() == item.name.lower():
-					self.inventory.remove(item)
-					tile_name.items.append(item)
 					item_match = True
+					dropped_item = item
 
-			# if input does not match any of the available items, print error message
+			# if input matches, remove from inventory and add to tile; otherwise, print error message
 			if item_match == True:
-				print("\n        SUCCESS: you dropped your " + requested_drop + "!\n")
+				self.inventory.remove(dropped_item)
+				tile_name.items.append(dropped_item)
+				print("\n        SUCCESS: you dropped your '" + dropped_item.name + "'!\n\n")
 			else:
-				print("\n        ERROR: '" + requested_drop + "' does not exist in your inventory...\n")
+				print("\n        ERROR: '" + dropped_item.name + "' does not exist in your inventory...\n\n")
 
 		else:
-			print("\n        Sorry, your inventory does not contain any more items...\n")
+			print("\n        Sorry, your inventory does not contain any more items...\n\n")
+
+		self.move(0,0)
 
 
 	# PICK UP ITEM FROM TILE
@@ -129,42 +145,60 @@ class Player():
 		index = 0
 
 		if num_items > 0:
-			for item in tile_name.items:
-				index += 1
-				if index < num_items:
-					items_for_pickup += " '" + item.name + "'"
-					if num_items > 2:
-						items_for_pickup += ","
-				else:
-					items_for_pickup += " or '" + item.name + "'"
+			if num_items > 1:
+				for item in tile_name.items:
+					index += 1
+					if index < num_items:
+						items_for_pickup += " '" + item.name + "'"
+						if num_items > 2:
+							items_for_pickup += ","
+					else:
+						items_for_pickup += " or '" + item.name + "'"
+			else:
+				items_for_pickup += " '" + tile_name.items[0].name + "'"
 
 			# show player available items and request string input of choice
-			print("\n        (options are:" + items_for_pickup + ")")
+			print("\n        (options include:" + items_for_pickup + ")")
 
 			requested_pickup = raw_input("\n        PICK UP - type the name of item you would like to pick up: ")
 			item_match = False
+			space_left = False
 
-			# check choice against tile's items; if match, add to inventory and remove from tile
+			inv_filled = 0
+			for item in self.inventory:
+				inv_filled += item.size
+
+			# check choice against tile's items and inventory space
 			for item in tile_name.items:
 				if requested_pickup.lower() == item.name.lower():
-					self.inventory.append(item)
-					tile_name.items.remove(item)
 					item_match = True
+					pickup_item = item
+					if item.size + inv_filled < 100:
+						space_left = True
 
-			# if input does not match any of the available items, print error message
+			# if input matches, add to inventory if space left and remove from tile; otherwise, print error message
 			if item_match == True:
-				print("\n        SUCCESS: you pick up one " + requested_pickup + "!\n")
+				if space_left == True:
+					self.inventory.append(pickup_item)
+					tile_name.items.remove(pickup_item)
+					print("\n        SUCCESS: you pick up one '" + pickup_item.name + "'!\n\n")
+				else:
+					print("\n        ERROR: not enough space in inventory for '" + pickup_item.name + "'!\n\n")
 			else:
-				print("\n        ERROR: '" + requested_pickup + "' does not exist in " + tile_name.id + "...\n")
+				print("\n        ERROR: '" + pickup_item.name + "' does not exist in " + tile_name.id + "...\n\n")
 
 		else:
-			print("\n        Sorry, " + tile_name.id + " does not contain any more items...\n")
+			print("\n        Sorry, '" + tile_name.id + "' does not contain any more items...\n\n")
+
+		self.move(0,0)
 
 
 	# END TREASURE HUNT
 	# -----------------
 
 	def end(self):
+
+		os.system('cls' if os.name == 'nt' else 'clear')
 
 		final_score = 0
 		for item in self.inventory:

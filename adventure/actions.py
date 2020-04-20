@@ -27,32 +27,24 @@ class action(object):
 # --------------
 
 class action_move_north(action):
-	def __init__(self):
-		super(action_move_north,self).__init__(name='move north', method=Player.move_north, hotkey="n")
+	def __init__(self, tile_name):
+		super(action_move_north,self).__init__(name="move north to '" + tile_name.id + "'", method=Player.move_north, hotkey="n")
 
 class action_move_south(action):
-	def __init__(self):
-		super(action_move_south,self).__init__(name='move south', method=Player.move_south, hotkey="s")
+	def __init__(self, tile_name):
+		super(action_move_south,self).__init__(name="move south to '" + tile_name.id + "'", method=Player.move_south, hotkey="s")
 
 class action_move_east(action):
-	def __init__(self):
-		super(action_move_east,self).__init__(name='move east', method=Player.move_east, hotkey="e")
+	def __init__(self, tile_name):
+		super(action_move_east,self).__init__(name="move east to '" + tile_name.id + "'", method=Player.move_east, hotkey="e")
 
 class action_move_west(action):
-	def __init__(self):
-		super(action_move_west,self).__init__(name='move west', method=Player.move_west, hotkey="w")
+	def __init__(self, tile_name):
+		super(action_move_west,self).__init__(name="move west to '" + tile_name.id + "'", method=Player.move_west, hotkey="w")
 
 
 # INVENTORY ACTIONS
 # -----------------
-
-class view_inventory(action):
-	def __init__(self):
-		super(view_inventory,self).__init__(name='view inventory', method=Player.print_inventory, hotkey="i")
-
-class check_place_for_items(action):
-	def __init__(self):
-		super(check_place_for_items,self).__init__(name='check for items', method=Player.check_for_items, hotkey="c")
 
 class drop_item(action):
 	def __init__(self):
