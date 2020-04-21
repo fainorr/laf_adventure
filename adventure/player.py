@@ -4,7 +4,7 @@
 # ---------------------------------------------
 
 import os
-import items, world
+import items, world, email
 import random
 
 class Player():
@@ -200,9 +200,15 @@ class Player():
 
 		os.system('cls' if os.name == 'nt' else 'clear')
 
+		# calculate final score
 		final_score = 0
 		for item in self.inventory:
 			final_score += item.value
+
+		player_name = str(raw_input("/nPlease enter your name: "))
+
+		# send final score for leaderboard
+		email.send_score(player_name, final_score, self.inventory)
 
 		self.hunt_over = True
 
