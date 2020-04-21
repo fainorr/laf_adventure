@@ -124,7 +124,7 @@ class Player():
 				tile_name.items.append(dropped_item)
 				print("\n        SUCCESS: you dropped your '" + dropped_item.name + "'!\n\n")
 			else:
-				print("\n        ERROR: '" + dropped_item.name + "' does not exist in your inventory...\n\n")
+				print("\n        ERROR: '" + requested_drop + "' does not exist in your inventory...\n\n")
 
 		else:
 			print("\n        Sorry, your inventory does not contain any more items...\n\n")
@@ -185,7 +185,7 @@ class Player():
 				else:
 					print("\n        ERROR: not enough space in inventory for '" + pickup_item.name + "'!\n\n")
 			else:
-				print("\n        ERROR: '" + pickup_item.name + "' does not exist in " + tile_name.id + "...\n\n")
+				print("\n        ERROR: '" + requested_pickup + "' does not exist in " + tile_name.id + "...\n\n")
 
 		else:
 			print("\n        Sorry, '" + tile_name.id + "' does not contain any more items...\n\n")
