@@ -4,7 +4,7 @@
 # ---------------------------------------------
 
 import os
-import items, world, email
+import items, world, scoreboard
 import random
 
 class Player():
@@ -123,13 +123,12 @@ class Player():
 				self.inventory.remove(dropped_item)
 				tile_name.items.append(dropped_item)
 				print("\n        SUCCESS: you dropped your '" + dropped_item.name + "'!\n\n")
+				self.move(0,0)
 			else:
 				print("\n        ERROR: '" + requested_drop + "' does not exist in your inventory...\n\n")
 
 		else:
 			print("\n        Sorry, your inventory does not contain any more items...\n\n")
-
-		self.move(0,0)
 
 
 	# PICK UP ITEM FROM TILE
@@ -182,6 +181,7 @@ class Player():
 					self.inventory.append(pickup_item)
 					tile_name.items.remove(pickup_item)
 					print("\n        SUCCESS: you pick up one '" + pickup_item.name + "'!\n\n")
+					self.move(0,0)
 				else:
 					print("\n        ERROR: not enough space in inventory for '" + pickup_item.name + "'!\n\n")
 			else:
@@ -189,8 +189,6 @@ class Player():
 
 		else:
 			print("\n        Sorry, '" + tile_name.id + "' does not contain any more items...\n\n")
-
-		self.move(0,0)
 
 
 	# END TREASURE HUNT
@@ -205,10 +203,10 @@ class Player():
 		for item in self.inventory:
 			final_score += item.value
 
-		player_name = str(raw_input("/nPlease enter your name: "))
+		player_name = str(raw_input("\nPlease enter your name: "))
 
 		# send final score for leaderboard
-		email.send_score(player_name, final_score, self.inventory)
+		scoreboard.send_score(player_name, final_score, self.inventory)
 
 		self.hunt_over = True
 
