@@ -1,2 +1,2 @@
-quad    farinon   starting_room
-pardee  .         .
+quad    farinon         starting_room
+pardee  watson_courts   .

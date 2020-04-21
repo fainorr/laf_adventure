@@ -21,7 +21,7 @@ def send_score(player_name, final_score, player_inventory):
     msg['Subject'] = 'SCOREBOARD UPDATE'
     message = """
 
-    A new player just complete the 'Laf Adventure' treasure hunt!
+    A new player just completed the 'Laf Adventure' treasure hunt!
 
     Name: {}
     Score: {}

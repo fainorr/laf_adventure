@@ -57,19 +57,19 @@ class campus_space(map_tile, object):
         super(campus_space, self).available_actions(self.id)
 
 
-# STARTING ROOM: GATES
-# --------------------
+# STARTING ROOM: McKEEN
+# ---------------------
 
 class starting_room(campus_space):
     def __init__(self, x, y):
-        self.id = "Gates"
+        self.id = "McKeen"
         tile_items = [items.phone()]
 
         super(starting_room, self).__init__(x, y, tile_items)
 
     def intro_text(self):
         return """
-        You wake up in Gates hall, your dorm room... Today is the day.
+        You wake up in McKeen hall, your dorm room... Today is the day.
         By sunset, you must collect Lafayette's most valuable items - it's President Byerly's request.
         As you exit, you start taking in your environment like never before.
 
@@ -99,10 +99,10 @@ class starting_room(campus_space):
 class farinon(campus_space):
     def __init__(self, x, y):
         self.id = "Farinon"
-        tile_items = [items.banner()]
+        tile_items = [items.banner(), items.fireplace(), items.napkin_basket(), items.quesadilla(), items.newspaper()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)):
+        for pick in range(0,len(tile_items)-2):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -111,8 +111,30 @@ class farinon(campus_space):
 
     def intro_text(self):
         return """
-        Farinon with its hand-painted banners, napkin baskets, and unhealty food options.
-        Nothing beats it.
+        With its hand-painted banners hanging in the atrium and unhealty food options available
+        through midnight, nothing beats the student center.
+        """
+
+# WATSON COURTS
+# -------------
+
+class watson_courts(campus_space):
+    def __init__(self, x, y):
+        self.id = "Watson Courts"
+        tile_items = [items.brick(), items.grill(), items.lead_paint(), items.toilet_paper(), items.RA()]
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-2):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(watson_courts, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+        Initially constructed as temporary housing units, the 'Courts' now seem as permanent as
+        the Lafayette-Lehigh rivalry to the school.
         """
 
 # THE QUAD
@@ -133,7 +155,7 @@ class quad(campus_space):
 
     def intro_text(self):
         return """
-        Ah yes, the quad... The sun is shining and it is filled with student.
+        Ah yes, the quad... The sun is shining and it is filled with students.
         Most importantly, you notice the adirondack chairs and numerous camping hammocks.
         """
 
