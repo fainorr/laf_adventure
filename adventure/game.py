@@ -4,7 +4,7 @@
 # ------------------------------------------------------------
 
 import os
-import world
+import world, leaderboard
 from player import Player
 
 def play():
@@ -16,7 +16,8 @@ def play():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print(tile_name.welcome_text())
-    action_input = str(raw_input("\nPlease type 'go' to start your treasure hunt: "))
+    leaderboard.show_leaderboard('intro', 0)
+    action_input = str(raw_input("Please type 'go' to start your treasure hunt: "))
 
     if action_input == "go":
         os.system('cls' if os.name == 'nt' else 'clear')

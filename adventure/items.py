@@ -34,7 +34,7 @@ class phone(item):
 
 		super(phone,self).__init__(name = "Cell Phone",
 						 description = "cause you'd never be caught without your {0}.".format(self.type),
-						 value = self.value,
+						 value = self.value + randint(-3,3),
 						 size = 3)
 
 
@@ -46,7 +46,7 @@ class banner(item):
 
 		super(banner,self).__init__(name = "Banner",
 						 description = "a cheap, homemade club advertisement.",
-						 value = 6,
+						 value = 22 + randint(-5,5),
 						 size = 10)
 
 class fireplace(item):
@@ -54,7 +54,7 @@ class fireplace(item):
 
 		super(fireplace,self).__init__(name = "Fireplace",
 						 description = "said to be the the sole remains of the Delta Upsilon House that formerly occupied the site.",
-						 value = 200,
+						 value = 200 + randint(-25,25),
 						 size = 35)
 
 class quesadilla(item):
@@ -62,7 +62,7 @@ class quesadilla(item):
 
 		super(quesadilla,self).__init__(name = "Quesadilla",
 						 description = "one of Lower's most popular late-night features.",
-						 value = 45,
+						 value = 45 + randint(-8,8),
 						 size = 4)
 
 class napkin_basket(item):
@@ -70,7 +70,7 @@ class napkin_basket(item):
 
 		super(napkin_basket,self).__init__(name = "Napkin Basket",
 						 description = "as an easy target for student theft, these frequently disappear...",
-						 value = 10,
+						 value = 10 + randint(-2,2),
 						 size = 5)
 
 class newspaper(item):
@@ -87,7 +87,7 @@ class newspaper(item):
 
 		super(newspaper,self).__init__(name = "Newspaper",
 						 description = "with a headline that reads:\n                    '{}'.".format(self.headline),
-						 value = self.value,
+						 value = self.value + randint(-3,3),
 						 size = 6)
 
 
@@ -99,7 +99,7 @@ class lead_paint(item):
 
 		super(lead_paint,self).__init__(name = "Lead Paint",
 						 description = "a silent killer, abundant and rusty-red in color.",
-						 value = -10,
+						 value = -10 + randint(-2,2),
 						 size = 2)
 
 class toilet_paper(item):
@@ -116,7 +116,7 @@ class toilet_paper(item):
 
 		super(toilet_paper,self).__init__(name = "Toilet Paper",
 						 description = "a {}-inch roll essential for any pandemic.".format(self.roll_size),
-						 value = self.value,
+						 value = self.value + randint(-5,5),
 						 size = self.size)
 
 class RA(item):
@@ -132,15 +132,15 @@ class grill(item):
 
 		super(grill,self).__init__(name = "Grill",
 						 description = "a classic, charcoal-burning cooking option.",
-						 value = 85,
+						 value = 85 + randint(-15,15),
 						 size = 22)
 
 class brick(item):
 	def __init__(self):
 
 		super(brick,self).__init__(name = "Loose Brick",
-						 description = "falling out, probably because the courts weren't build as a permanent accomodation..",
-						 value = 20,
+						 description = "falling out, probably because the courts weren't built as a permanent accomodation..",
+						 value = 20 + randint(-4,4),
 						 size = 6)
 
 
@@ -151,7 +151,7 @@ class adirondack_chair(item):
 	def __init__(self):
 
 		color_choices = ["black", "blue", "white", "maroon"]
-		color_values = [80, 100, 150, 200]
+		color_values = [80, 100, 120, 140]
 
 		i = randint(0,len(color_choices)-1)
 		self.color = color_choices[i]
@@ -159,7 +159,7 @@ class adirondack_chair(item):
 
 		super(adirondack_chair,self).__init__(name="Adirondack Chair",
 						 description="an icon of quad relaxation, painted {0}.".format(self.color),
-						 value=self.value,
+						 value=self.value + randint(-30,30),
 						 size=20)
 
 class hammock(item):
@@ -167,7 +167,7 @@ class hammock(item):
 
 		super(hammock,self).__init__(name = "Hammock",
 						 description = "perfect for sprawling between two trees.",
-						 value = 20,
+						 value = 20 + randint(-3,3),
 						 size = 5)
 
 class quadler(item):
@@ -176,8 +176,8 @@ class quadler(item):
 		self.size = randint(10,14)
 
 		super(quadler,self).__init__(name = "Quadler",
-						 description = "one of Lafayette's brightest students.",
-						 value = -40,
+						 description = "one of Lafayette's brightest future students.",
+						 value = -30 + randint(-10,10),
 						 size = self.size)
 
 class quad_elm(item):
@@ -194,7 +194,7 @@ class quad_elm(item):
 
 		super(quad_elm,self).__init__(name = "Quad Elm",
 						 description = "a {0} year old tree for sitting beneath (or climbing).".format(self.age),
-						 value = self.value,
+						 value = self.value + randint(-40,40),
 						 size = self.size)
 
 class beer_can(item):
@@ -202,12 +202,12 @@ class beer_can(item):
 
 		super(beer_can,self).__init__(name = "Beer Can",
 						 description = "a keepsake from Wednesday night's formal at Campus Pizza.",
-						 value = 10,
+						 value = 10 + randint(-2,2),
 						 size = 2)
 
 
 # PARDEE ITEMS
-# -------------
+# ------------
 
 class stained_glass(item):
 	def __init__(self):
@@ -219,7 +219,7 @@ class stained_glass(item):
 
 		super(stained_glass,self).__init__(name = "Stained Glass Window",
 						 description = "it's rumoured to be crafted by Lafayette's first leopard mascot.",
-						 value = 150,
+						 value = 150 + randint(-20,20),
 						 size = self.size)
 
 class tenured_professor(item):
@@ -227,7 +227,7 @@ class tenured_professor(item):
 
 		super(tenured_professor,self).__init__(name = "Tenured Professor",
 						 description = "an essential asset to any liberal arts institution.",
-						 value = 25,
+						 value = 25 + randint(-4,4),
 						 size = 18)
 
 class fire_extinguisher(item):
@@ -235,7 +235,7 @@ class fire_extinguisher(item):
 
 		super(fire_extinguisher,self).__init__(name = "Fire Extinguisher",
 						 description = "can't be over-prepared, considering Pardee's history...",
-						 value = 60,
+						 value = 60 + randint(-10,10),
 						 size = 12)
 
 class textbook(item):
@@ -252,14 +252,14 @@ class textbook(item):
 
 		super(textbook, self).__init__(name = "Textbook",
 						 description = "a way-too-heavy {0} textbook (why would carry this around, anyway?).".format(self.subject),
-						 value = self.value,
+						 value = self.value + randint(-6,6),
 						 size = self.size)
 
 class pencil(item):
 	def __init__(self):
 
-		engraving_choices = ["DuoPush Rocks!", "Don't Do Drugs", "Live, Laf, Love"]
-		engraving_values = [-10, 10, 20]
+		engraving_choices = ["DuoPush Rocks!", "Class of 20-Fun", "Don't Do Drugs", "Live, Laf, Love"]
+		engraving_values = [-10, 0, 10, 20]
 
 		i = randint(0,len(engraving_choices)-1)
 		self.engraving = engraving_choices[i]
@@ -267,5 +267,125 @@ class pencil(item):
 
 		super(pencil,self).__init__(name = "Pencil",
 						 description = "a classic wooden pencil, carefully engraved with '{0}'.".format(self.engraving),
-						 value = self.value,
+						 value = self.value + randint(-3,3),
 						 size = 2)
+
+
+# ZETA PSI ITEMS
+# --------------
+
+class pool_table(item):
+	def __init__(self):
+
+		super(pool_table,self).__init__(name = "Pool Table",
+						 description = "slightly torn and fit for any common room.",
+						 value = 105 + randint(-12,12),
+						 size = 24)
+
+class chef(item):
+	def __init__(self):
+
+		food_choices = ["grilled cheese", "beef stew", "broccoli cheddar soup", "triple-decker chocolate cake"]
+		food_values = [96, 82, 68, 112]
+
+		i = randint(0,len(food_choices)-1)
+		self.food = food_choices[i]
+		self.value = food_values[i]
+
+		super(chef,self).__init__(name = "Chef",
+						 description = "famous for making a gourmet {}.".format(self.food),
+						 value = self.value + randint(-15,15),
+						 size = 18)
+
+class pizza_box(item):
+	def __init__(self):
+
+		super(pizza_box,self).__init__(name = "Pizza Box",
+						 description = "greasy and empty.",
+						 value = -18 + randint(-5,5),
+						 size = 5)
+
+class beer_case(item):
+	def __init__(self):
+
+		super(beer_case,self).__init__(name = "Beer Case",
+						 description = "flattened and empty, hanging on the wall as some sort of 'trophy'.",
+						 value = 8 + randint(-2,2),
+						 size = 4)
+
+class shampoo(item):
+	def __init__(self):
+
+		super(shampoo,self).__init__(name = "Shampoo",
+						 description = "a three-in-one bottle of shampoo / conditioner / bodywash (why would you need separate bottles?).",
+						 value = 12 + randint(-2,2),
+						 size = 3)
+
+
+# SKILLMAN ITEMS
+# --------------
+
+
+
+# MARKLE ITEMS
+# ------------
+
+
+
+# FISHER FIELD ITEMS
+# ------------------
+
+
+
+# BUSHKILL LOT ITEMS
+# ------------------
+
+
+
+# COLLEGE HILL TAVERN ITEMS
+# -------------------------
+
+
+
+# ACOPIAN ITEMS
+# -------------
+
+
+
+# ROCKWELL ITEMS
+# --------------
+
+
+
+# RESEARCH LAB ITEMS
+# ------------------
+
+
+
+# WATSON ITEMS
+# ------------
+
+
+
+# MARCH FIELD ITEMS
+# -----------------
+
+
+
+# MARQUIS ITEMS
+# -------------
+
+
+
+# KIRBY ITEMS
+# -----------
+
+
+
+# SOUTH ITEMS
+# -----------
+
+
+
+# ARTS CAMPUS ITEMS
+# -----------------

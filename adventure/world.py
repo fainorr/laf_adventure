@@ -3,8 +3,6 @@
 # define the world by assembling the pre-set compus_spaces
 # --------------------------------------------------------
 
-from re import match
-
 world_map = {}
 starting_position = (0, 0)
 

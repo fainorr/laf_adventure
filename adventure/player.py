@@ -4,8 +4,8 @@
 # ---------------------------------------------
 
 import os
-import items, world, scoreboard
-import random
+import items, world, send, leaderboard
+from random import *
 
 class Player():
 
@@ -206,11 +206,14 @@ class Player():
 		player_name = str(raw_input("\nPlease enter your name: "))
 
 		# send final score for leaderboard
-		scoreboard.send_score(player_name, final_score, self.inventory)
+		send.send_score(player_name, final_score, self.inventory)
 
 		self.hunt_over = True
 
 		print("\n        After a long day of treasure hunting across campus, President Byerly awards you...\n")
 		print("        ------------")
 		print("        FINAL SCORE:    -= [  {}  POINTS  ] =-").format(final_score)
-		print("        ------------\n")
+		print("        ------------\n\n")
+
+		# show updated leaderboard
+		leaderboard.show_leaderboard(player_name, final_score)

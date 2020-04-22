@@ -102,7 +102,7 @@ class farinon(campus_space):
         tile_items = [items.banner(), items.fireplace(), items.napkin_basket(), items.quesadilla(), items.newspaper()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-2):
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -111,8 +111,8 @@ class farinon(campus_space):
 
     def intro_text(self):
         return """
-        With its hand-painted banners hanging in the atrium and unhealty food options available
-        through midnight, nothing beats the student center.
+        With its hand-painted banners hanging in the atrium and tasty food options available
+        through midnight, the student center is a bustling hub for the student body.
         """
 
 # WATSON COURTS
@@ -124,7 +124,7 @@ class watson_courts(campus_space):
         tile_items = [items.brick(), items.grill(), items.lead_paint(), items.toilet_paper(), items.RA()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-2):
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -133,8 +133,8 @@ class watson_courts(campus_space):
 
     def intro_text(self):
         return """
-        Initially constructed as temporary housing units, the 'Courts' now seem as permanent as
-        the Lafayette-Lehigh rivalry to the school.
+        Initially constructed as temporary housing units, the 'Courts' are now just as temporary
+        as March Hall is beginning to seem...
         """
 
 # THE QUAD
@@ -146,7 +146,7 @@ class quad(campus_space):
         tile_items = [items.adirondack_chair(), items.hammock(), items.quadler(), items.quad_elm(), items.beer_can()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-1):
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -155,8 +155,8 @@ class quad(campus_space):
 
     def intro_text(self):
         return """
-        Ah yes, the quad... The sun is shining and it is filled with students.
-        Most importantly, you notice the adirondack chairs and numerous camping hammocks.
+        Filled with students on a warm spring day, this green space is home to frisbee games,
+        slacklining lessons, hammocking hangouts, and old tree climbs.
         """
 
 # PARDEE
@@ -168,7 +168,7 @@ class pardee(campus_space):
         tile_items = [items.stained_glass(), items.tenured_professor(), items.pencil(), items.fire_extinguisher(), items.textbook()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-1):
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -177,5 +177,327 @@ class pardee(campus_space):
 
     def intro_text(self):
         return """
-        Pardee is home to the most academic departments on campus!
+        Not only home to the most academic departments on campus, Pardee is also rumoured to
+        contain emergency firearms on its mysterious and unreachable 5th floor.
+        """
+
+# ZETA PSI
+# --------
+
+class zeta_psi(campus_space):
+    def __init__(self, x, y):
+        self.id = "Zeta Psi"
+        tile_items = [items.pool_table(), items.chef(), items.pizza_box(), items.beer_case(), items.shampoo()]
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(zeta_psi, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+        Lafayette's newest fraternity, re-chartered in 2018 after a five-year suspension, is
+        back in full-swing with it's house dog Miss Pineapple!
+        """
+
+# SKILLMAN
+# --------
+
+class skillman(campus_space):
+    def __init__(self, x, y):
+        self.id = "Skillman"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(skillman, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+        The recently rennovated library where a sole 3-D printer endlessly makes unrecognizable
+        objects, students file through the cafe for yet-another coffee punch, and numerous study
+        rooms sit occupied with only a set of unattended books.
+        """
+
+# MARKLE
+# ------
+
+class markle(campus_space):
+    def __init__(self, x, y):
+        self.id = "Markle"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(markle, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+        An observatory-turned-admissions building, Markle's visitation office welcomes thousands
+        of families so prospective students can find their next four-year home.
+        """
+
+# FISHER FIELD
+# ------------
+
+class fisher_field(campus_space):
+    def __init__(self, x, y):
+        self.id = "Fisher Field"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(fisher_field, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+        Home to the Patriot League runner-ups of the 2019 football season, Fisher Field hosts
+        roughly six games each season with less-than-impressive attendance.  It may come as no
+        surprise, then, that the field's west end was once the site of the Easton City Dump!
+        """
+
+# BUSHKILL LOT
+# ------------
+
+class bushkill_lot(campus_space):
+    def __init__(self, x, y):
+        self.id = "Bushkill Lot"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(bushkill_lot, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# COLLEGE HILL TAVERN
+# -------------------
+
+class cht(campus_space):
+    def __init__(self, x, y):
+        self.id = "College Hill Tavern"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(cht, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# ACOPIAN
+# -------
+
+class acopian(campus_space):
+    def __init__(self, x, y):
+        self.id = "Acopian"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(acopian, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# ROCKWELL
+# --------
+
+class rockwell(campus_space):
+    def __init__(self, x, y):
+        self.id = "Rockwell"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(rockwell, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# RESEARCH LAB
+# ------------
+
+class research_lab(campus_space):
+    def __init__(self, x, y):
+        self.id = "A Research Lab"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(research_lab, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# WATSON
+# ------
+
+class watson(campus_space):
+    def __init__(self, x, y):
+        self.id = "Watson"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(watson, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# MARCH FIELD
+# -----------
+
+class march_field(campus_space):
+    def __init__(self, x, y):
+        self.id = "March Field"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(march_field, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# MARQUIS
+# -------
+
+class marquis(campus_space):
+    def __init__(self, x, y):
+        self.id = "Marquis"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(marquis, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# KIRBY
+# -----
+
+class kirby(campus_space):
+    def __init__(self, x, y):
+        self.id = "Kirby"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(kirby, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# SOUTH
+# -----
+
+class south(campus_space):
+    def __init__(self, x, y):
+        self.id = "South"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(south, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
+        """
+
+# ARTS CAMPUS
+# -----------
+
+class arts_campus(campus_space):
+    def __init__(self, x, y):
+        self.id = "The Arts Campus"
+        tile_items = []
+
+        chosen_items = []
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
+            choice = random.choice(tile_items)
+            tile_items.remove(choice)
+            chosen_items.append(choice)
+
+        super(arts_campus, self).__init__(x, y, chosen_items)
+
+    def intro_text(self):
+        return """
+
         """
