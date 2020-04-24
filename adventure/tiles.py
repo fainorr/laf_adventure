@@ -289,7 +289,7 @@ class bushkill_lot(campus_space):
 
     def intro_text(self):
         return """
-
+        Lafayette's newest and furthest option for parking, a real upgrade for no-one.
         """
 
 # COLLEGE HILL TAVERN
@@ -310,7 +310,8 @@ class cht(campus_space):
 
     def intro_text(self):
         return """
-
+        More than just your local neighborhood bar, this infamous host of Wednesday night karaoke
+        is a popular destination for Lafayette's drinking elite to gather and mingle.
         """
 
 # ACOPIAN
@@ -331,7 +332,9 @@ class acopian(campus_space):
 
     def intro_text(self):
         return """
-
+        Priding itself as the nation's 11th best undergraduate engineering program for schools
+        where doctorates are not offered, Lafayette's engineering program inhabits this Frankenstein
+        of a building, offering formal coursework, high-tech equipment, and even overnight lodging!
         """
 
 # ROCKWELL
@@ -352,7 +355,9 @@ class rockwell(campus_space):
 
     def intro_text(self):
         return """
-
+        The largest capital project in Lafayette's history provides students with impressive study
+        spaces and new classroom environments - all while consuming little energy and lots of
+        tuition payments.
         """
 
 # RESEARCH LAB
@@ -373,7 +378,7 @@ class research_lab(campus_space):
 
     def intro_text(self):
         return """
-
+        
         """
 
 # WATSON
