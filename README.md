@@ -8,8 +8,3 @@ More specifically, your task is a _treasure hunt_, one of collecting the greates
 ## RUN GAME:
 
 [Start Game](https://lafadventure.fainorr.repl.run/)
-
-
-## MAP:
-
-![Game Map](https://github.com/fainorr/laf_adventure/blob/master/map/LAF_ADVENTURE_MAP.pdf)

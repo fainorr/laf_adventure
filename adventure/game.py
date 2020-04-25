@@ -4,6 +4,7 @@
 # ------------------------------------------------------------
 
 import os
+import webbrowser
 import world, leaderboard
 from player import Player
 
@@ -14,6 +15,9 @@ def play():
     tile_name = world.tile_exists(player.location_x, player.location_y)
 
     os.system('cls' if os.name == 'nt' else 'clear')
+
+    map_url = 'https://drive.google.com/file/d/1Cf2d9SXhKff3Lf30xqqnwsrIPWQNUYrQ/view?usp=sharing'
+    webbrowser.open(map_url, new=0, autoraise=True)
 
     print(tile_name.welcome_text())
     leaderboard.show_leaderboard('intro', 0)
