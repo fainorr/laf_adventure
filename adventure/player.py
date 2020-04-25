@@ -6,6 +6,7 @@
 import os
 import items, world, send, leaderboard
 from random import *
+from numpy import *
 
 class Player():
 
@@ -200,8 +201,20 @@ class Player():
 
 		# calculate final score
 		final_score = 0
+		value_per_size = []
 		for item in self.inventory:
 			final_score += item.value
+			value_per_size.append(float(item.value)/float(item.size))
+
+		# find most valuable item
+		most_valuable_i  = 0
+		highest_value = value_per_size[0]
+		if len(value_per_size) > 1:
+			for i in range(1,len(value_per_size)):
+				if value_per_size[i] > highest_value:
+					highest_value = value_per_size[i]
+					most_valuable_i = i
+		most_valuable_item = self.inventory[most_valuable_i].name
 
 		player_name = str(raw_input("\nPlease enter your name: "))
 
@@ -213,7 +226,10 @@ class Player():
 		print("\n        After a long day of treasure hunting across campus, President Byerly awards you...\n")
 		print("        ------------")
 		print("        FINAL SCORE:    -= [  {}  POINTS  ] =-").format(final_score)
-		print("        ------------\n\n")
+		print("        ------------\n")
+
+		# show most valuable item
+		print("        Your most valuable item was '{0}'!\n\n".format(most_valuable_item))
 
 		# show updated leaderboard
 		leaderboard.show_leaderboard(player_name, final_score)

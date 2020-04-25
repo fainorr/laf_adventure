@@ -1,0 +1,6 @@
+bushkill_lot  .             .             .
+fisher_field  cht           .             .
+markle        .             .             .
+skillman      quad          farinon       starting_room
+.             pardee	      watson_courts .
+.             zeta_psi      .             .

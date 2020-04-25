@@ -16,7 +16,7 @@ def load_tiles():
 
     # pulls tile organization from file
 
-    with open('resources/map.txt', 'r') as f:
+    with open('resources/half_map.txt', 'r') as f:
         full = f.readlines()
 
     x_max = len(full[0].split())

@@ -187,10 +187,10 @@ class pardee(campus_space):
 class zeta_psi(campus_space):
     def __init__(self, x, y):
         self.id = "Zeta Psi"
-        tile_items = [items.pool_table(), items.chef(), items.pizza_box(), items.beer_case(), items.shampoo()]
+        tile_items = [items.pool_table(), items.chef(), items.beer_case(), items.shampoo()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,2)):
+        for pick in range(0,len(tile_items)-random.randint(0,1)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -209,7 +209,7 @@ class zeta_psi(campus_space):
 class skillman(campus_space):
     def __init__(self, x, y):
         self.id = "Skillman"
-        tile_items = []
+        tile_items = [items.novel(), items.punchcard(), items.printer(), items.special_collection(), items.backpack()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -234,7 +234,7 @@ class markle(campus_space):
         self.id = "Markle"
         tile_items = []
 
-        chosen_items = []
+        chosen_items = [items.flag(), items.tour_guide(), items.add_drop(), items.brochue()]
         for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
@@ -254,7 +254,7 @@ class markle(campus_space):
 class fisher_field(campus_space):
     def __init__(self, x, y):
         self.id = "Fisher Field"
-        tile_items = []
+        tile_items = [items.helmet(), items.football(), items.goalpost(), items.bleacher(), items.mascot()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -279,8 +279,8 @@ class bushkill_lot(campus_space):
         self.id = "Bushkill Lot"
         tile_items = []
 
-        chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,2)):
+        chosen_items = [items.car(), items.parking_pass(), items.security_cam()]
+        for pick in range(0,len(tile_items)-random.randint(0,1)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -358,27 +358,6 @@ class rockwell(campus_space):
         The largest capital project in Lafayette's history provides students with impressive study
         spaces and new classroom environments - all while consuming little energy and lots of
         tuition payments.
-        """
-
-# RESEARCH LAB
-# ------------
-
-class research_lab(campus_space):
-    def __init__(self, x, y):
-        self.id = "A Research Lab"
-        tile_items = []
-
-        chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,2)):
-            choice = random.choice(tile_items)
-            tile_items.remove(choice)
-            chosen_items.append(choice)
-
-        super(research_lab, self).__init__(x, y, chosen_items)
-
-    def intro_text(self):
-        return """
-        
         """
 
 # WATSON
