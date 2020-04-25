@@ -234,7 +234,7 @@ class markle(campus_space):
         self.id = "Markle"
         tile_items = []
 
-        chosen_items = [items.flag(), items.tour_guide(), items.add_drop(), items.brochue()]
+        chosen_items = [items.flag(), items.tour_guide(), items.add_drop(), items.brochure()]
         for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
