@@ -26,7 +26,7 @@ class phone(item):
 	def __init__(self):
 
 		phone_choices = ["iPhone", "Android", "flip phone"]
-		phone_values = [20, 10, -10]
+		phone_values = [15, 10, -10]
 
 		i = randint(0,len(phone_choices)-1)
 		self.type = phone_choices[i]
@@ -62,7 +62,7 @@ class quesadilla(item):
 
 		super(quesadilla,self).__init__(name = "Quesadilla",
 						 description = "one of Lower's most popular late-night features",
-						 value = 45 + randint(-8,8),
+						 value = 30 + randint(-8,8),
 						 size = 4)
 
 class napkin_basket(item):
@@ -194,7 +194,7 @@ class quad_elm(item):
 
 		super(quad_elm,self).__init__(name = "Quad Elm",
 						 description = "a {0} year old tree for sitting beneath (or climbing)".format(self.age),
-						 value = self.value + randint(-40,40),
+						 value = self.value + randint(-25,25),
 						 size = self.size)
 
 class beer_can(item):
@@ -279,7 +279,7 @@ class pool_table(item):
 
 		super(pool_table,self).__init__(name = "Pool Table",
 						 description = "fit for any common room",
-						 value = 62 + randint(-12,12),
+						 value = 62 + randint(-8,8),
 						 size = 24)
 
 class chef(item):
@@ -330,7 +330,7 @@ class printer(item):
 
 		super(printer,self).__init__(name = "Printer",
 					 description = "someone said printing is free... does that include a printer, too?",
-					 value = 56 + randint(-12,12),
+					 value = 56 + randint(-6,6),
 					 size = 15)
 
 class special_collection(item):
@@ -454,7 +454,7 @@ class goalpost(item):
 		self.value = size_values[i]
 
 		super(goalpost,self).__init__(name = "Goal Post",
-					 description = "just a piece - a primary target of theft at the old Rivalry games",
+					 description = "just a piece - a primary target of theft at the old Rivalry games!",
 					 value = self.value + randint(-5,5),
 					 size = self.size)
 
@@ -551,41 +551,74 @@ class karaoke(item):
 					 value = 35 + randint(-4,4),
 					 size = 9)
 
+class townie(item):
+	def __init__(self):
+
+		super(townie,self).__init__(name = "Townie",
+					 description = "a College Hill local in their 20s",
+					 value = 52 + randint(-5,5),
+					 size = 18)
+
+
+class neon_sign(item):
+	def __init__(self):
+
+		sign_choices = ["It's 5:00 somewhere!", "Cheers!", "Always happy hour!", "Corona Extra"]
+		sign_values = [72, 60, 84, 56]
+
+		i = randint(0,len(sign_choices)-1)
+		self.sign = sign_choices[i]
+		self.value = sign_values[i]
+
+		super(neon_sign,self).__init__(name = "Neon Sign",
+					 description = "a classic bar sign that reads '{}'".format(self.sign),
+					 value = self.value + randint(-6,6),
+					 size = 14)
+
 
 # ACOPIAN ITEMS
 # -------------
 
+# calculator, formula car, steel bridge, oscilloscope, 3D-printer, arduino
 
 
 # ROCKWELL ITEMS
 # --------------
 
+# beaker, microscope, pink chair, smoothie, water bottle (from sustainability office)
 
 
 # WATSON ITEMS
 # ------------
 
+# microwave, first-year, toothbrush
 
 
 # MARCH FIELD ITEMS
 # -----------------
 
+# frisbee, lawnmower, flower
 
 
 # MARQUIS ITEMS
 # -------------
 
+# crepe, cookie, buffalo wings, mint, squash (Bon Appetit's just for show)
 
 
 # KIRBY ITEMS
 # -----------
 
+# painting, bronze bust (in the main lobby of an influential American figure), history book, library ladder, globe
 
 
 # SOUTH ITEMS
 # -----------
 
+# piano (from the practice rooms), 420 sign (it's been stolen in the past, trust me), shower curtain, oven
 
 
 # ARTS CAMPUS ITEMS
 # -----------------
+
+# paintbrush, pottery wheel, drafting table, student film, music stand, play script

@@ -1,5 +1,5 @@
-.             .             bushkill_lot  .             .             .
-.             .             fisher_field  cht           .             .
+.             .             bushkill_lot  cht           .             .
+.             .             fisher_field  .             .             .
 rockwell      acopian       markle        .             .             .
 watson        .             skillman      quad          farinon       starting_room
 march_field		kirby         .             pardee	      watson_courts .

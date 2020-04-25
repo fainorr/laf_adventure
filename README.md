@@ -10,7 +10,6 @@ More specifically, your task is a _treasure hunt_, one of collecting the greates
 [Start Game](https://lafadventure.fainorr.repl.run/)
 
 
-## Future additions:
-  - "view map" action
-  - larger world / more tiles / more items
-  - graphical interface for more engaging play
+## MAP:
+
+![Game Map](https://github.com/fainorr/laf_adventure/tree/master/resources/LAF ADVENTURE MAP.pdf)

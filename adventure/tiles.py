@@ -298,7 +298,7 @@ class bushkill_lot(campus_space):
 class cht(campus_space):
     def __init__(self, x, y):
         self.id = "College Hill Tavern"
-        tile_items = []
+        tile_items = [items.pint(), items.fake_id(), items.karaoke(), items.townie(), items.neon_sign()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
