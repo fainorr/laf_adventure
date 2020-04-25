@@ -12,4 +12,4 @@ More specifically, your task is a _treasure hunt_, one of collecting the greates
 
 ## MAP:
 
-![Game Map](https://github.com/fainorr/laf_adventure/tree/master/resources/LAF_ADVENTURE_MAP.pdf)
+![Game Map](https://github.com/fainorr/laf_adventure/blob/master/map/LAF_ADVENTURE_MAP.pdf)
