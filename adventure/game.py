@@ -4,7 +4,6 @@
 # ------------------------------------------------------------
 
 import os
-import webbrowser
 import world, leaderboard
 from player import Player
 
@@ -17,10 +16,10 @@ def play():
     os.system('cls' if os.name == 'nt' else 'clear')
 
     map_url = 'https://drive.google.com/file/d/1Cf2d9SXhKff3Lf30xqqnwsrIPWQNUYrQ/view?usp=sharing'
-    webbrowser.open(map_url, new=0, autoraise=True)
 
     print(tile_name.welcome_text())
     leaderboard.show_leaderboard('intro', 0)
+    print("Open map: {}\n".format(map_url))
     action_input = str(raw_input("Please type 'go' to start your treasure hunt: "))
 
     if action_input == "go":
