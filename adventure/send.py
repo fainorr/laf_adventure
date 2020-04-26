@@ -7,6 +7,7 @@ import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 
+
 def send_score(player_name, final_score, player_inventory):
     port = 587  # For starttls
     smtp_server = "smtp.gmail.com"

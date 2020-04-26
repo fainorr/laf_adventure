@@ -37,6 +37,7 @@ def show_leaderboard(new_name, new_score):
 
     print("")
 
+
 def gen_leaderboard():
 
     with open('resources/scores.txt', 'r') as f:

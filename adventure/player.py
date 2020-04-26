@@ -206,6 +206,7 @@ class Player():
 			final_score += item.value
 			value_per_size.append(float(item.value)/float(item.size))
 
+
 		# find most valuable item
 		most_valuable_i  = 0
 		highest_value = value_per_size[0]
@@ -217,6 +218,7 @@ class Player():
 		most_valuable_item = self.inventory[most_valuable_i].name
 
 		player_name = str(raw_input("\nPlease enter your name: "))
+
 
 		# send final score for leaderboard
 		send.send_score(player_name, final_score, self.inventory)

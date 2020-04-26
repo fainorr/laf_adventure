@@ -18,8 +18,8 @@ def play():
     map_url = 'https://drive.google.com/file/d/1Cf2d9SXhKff3Lf30xqqnwsrIPWQNUYrQ/view?usp=sharing'
 
     print(tile_name.welcome_text())
+    print("        Open map: {}\n".format(map_url))
     leaderboard.show_leaderboard('intro', 0)
-    print("Open map: {}\n".format(map_url))
     action_input = str(raw_input("Please type 'go' to start your treasure hunt: "))
 
     if action_input == "go":
@@ -45,7 +45,7 @@ def play():
 
         action_match = False
         for action in available_actions:
-            if action_input == action.hotkey:
+            if action_input.lower() == action.hotkey:
                 player.do_action(action, **action.kwargs)
                 action_match = True
 

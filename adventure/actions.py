@@ -5,7 +5,7 @@
 
 from player import Player
 
-# base class for all options
+# the base class for all actions
 
 class action(object):
 

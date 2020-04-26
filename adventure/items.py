@@ -5,7 +5,7 @@
 
 from random import *
 
-# The base classes for all items
+# the base classes for all items
 
 class item(object):
 
@@ -69,7 +69,7 @@ class napkin_basket(item):
 	def __init__(self):
 
 		super(napkin_basket,self).__init__(name = "Napkin Basket",
-						 description = "as an easy target for student theft, these frequently disappear...",
+						 description = "as an easy target for student theft...",
 						 value = 10 + randint(-2,2),
 						 size = 5)
 
@@ -242,8 +242,8 @@ class textbook(item):
 	def __init__(self):
 
 		subject_choices = ["math", "biology", "neuroscience", "mechanical engineering"]
-		subject_sizes = [8, 12, 6, 4]
-		subject_values = [35, 45, 35, 45]
+		subject_sizes = [8, 8, 6, 4]
+		subject_values = [35, 30, 35, 45]
 
 		i = randint(0,len(subject_choices)-1)
 		self.subject = subject_choices[i]
@@ -251,7 +251,7 @@ class textbook(item):
 		self.value = subject_values[i]
 
 		super(textbook, self).__init__(name = "Textbook",
-						 description = "a way-too-heavy {0} textbook (why would carry this around, anyway?)".format(self.subject),
+						 description = "a way-too-heavy {0} textbook (why carry this around, anyway?)".format(self.subject),
 						 value = self.value + randint(-6,6),
 						 size = self.size)
 
@@ -297,21 +297,29 @@ class chef(item):
 						 value = self.value + randint(-15,15),
 						 size = 18)
 
-class beer_case(item):
+class keg(item):
 	def __init__(self):
 
-		super(beer_case,self).__init__(name = "Beer Case",
-						 description = "flattened and empty, hanging on the wall as some sort of 'trophy'",
-						 value = 8 + randint(-2,2),
-						 size = 4)
+		super(keg,self).__init__(name = "Keg",
+						 description = "filled and ready for this weekend's spinning",
+						 value = 40 + randint(-4,4),
+						 size = 12)
 
 class shampoo(item):
 	def __init__(self):
 
 		super(shampoo,self).__init__(name = "Shampoo",
 						 description = "a three-in-one bottle of shampoo / conditioner / bodywash",
-						 value = 12 + randint(-2,2),
+						 value = 0 + randint(-2,2),
 						 size = 3)
+
+class speaker(item):
+	def __init__(self):
+
+		super(speaker,self).__init__(name = "Speaker",
+						 description = "set to max volume and bass",
+						 value = 72 + randint(-5,5),
+						 size = 15)
 
 
 # SKILLMAN ITEMS
@@ -361,7 +369,7 @@ class novel(item):
 	def __init__(self):
 
 		topic_choices = ["first love", "bullying", "a murder mystery"]
-		topic_values = [12, 8, 22]
+		topic_values = [12, 8, 28]
 
 		i = randint(0,len(topic_choices)-1)
 		self.topic = topic_choices[i]
@@ -389,7 +397,7 @@ class brochure(item):
 
 		super(brochure,self).__init__(name = "Admissions Brochure",
 					 description = "a summary of the facts and figures that all prospective dads love",
-					 value = 12 + randint(-3,3),
+					 value = 6 + randint(-3,3),
 					 size = 3)
 
 class add_drop(item):
@@ -397,7 +405,7 @@ class add_drop(item):
 
 		super(add_drop,self).__init__(name = "Add/Drop Form",
 					 description = "for when you're still figuring out your course plan",
-					 value = -4 + randint(-2,2),
+					 value = -10 + randint(-2,2),
 					 size = 2)
 
 class tour_guide(item):
@@ -440,7 +448,7 @@ class bleacher(item):
 
 		super(bleacher,self).__init__(name = "Bleacher Seat",
 					 description = "a section of metal bleacher from the vibrant student section",
-					 value = 98 + randint(-10,10),
+					 value = 80 + randint(-10,10),
 					 size = 28)
 
 class goalpost(item):
@@ -506,7 +514,7 @@ class security_cam(item):
 
 		super(security_cam,self).__init__(name = "Security Camera",
 					 description = "for monitoring the lot 24/7 in case of vandalism, perhaps",
-					 value = 65 + randint(-12,12),
+					 value = 50 + randint(-12,12),
 					 size = 10)
 
 
@@ -571,7 +579,7 @@ class neon_sign(item):
 		self.value = sign_values[i]
 
 		super(neon_sign,self).__init__(name = "Neon Sign",
-					 description = "a classic bar sign that reads '{}'".format(self.sign),
+					 description = "a classic bar sign that reads '{0}'".format(self.sign),
 					 value = self.value + randint(-6,6),
 					 size = 14)
 
@@ -579,46 +587,367 @@ class neon_sign(item):
 # ACOPIAN ITEMS
 # -------------
 
-# calculator, formula car, steel bridge, oscilloscope, 3D-printer, arduino
+class calculator(item):
+	def __init__(self):
+
+		super(calculator,self).__init__(name = "Calculator",
+					 description = "specifically a TI-Nspire, the world's most high-tech",
+					 value = 16 + randint(-3,3),
+					 size = 4)
+
+class formula_car(item):
+	def __init__(self):
+
+		super(formula_car,self).__init__(name = "Formula Car",
+					 description = "built for this year's SAE Formula Hybrid challenge",
+					 value = 110 + randint(-10,10),
+					 size = 30)
+
+class steel_bridge(item):
+	def __init__(self):
+
+		super(steel_bridge,self).__init__(name = "Steel Bridge",
+					 description = "hanging in the entrance for it's first-place finish at the national competition",
+					 value = 185 + randint(-10,10),
+					 size = 36)
+
+class oscilloscope(item):
+	def __init__(self):
+
+		super(oscilloscope,self).__init__(name = "Oscilloscope",
+					 description = "made by Tektronix for visualizing signals",
+					 value = 52 + randint(-4,4),
+					 size = 8)
+
+class raspberry_pi(item):
+	def __init__(self):
+
+		super(raspberry_pi,self).__init__(name = "Raspberry Pi",
+					 description = "a cheap and programmable single-board computer useful for any project",
+					 value = 18 + randint(-2,2),
+					 size = 2)
+
+class printer_3D(item):
+	def __init__(self):
+
+		color_choices = ["black", "white", "royal blue", "neon green", "yellow"]
+		color_values = [60, 45, 65, 50, 45]
+
+		i = randint(0,len(color_choices)-1)
+		self.color = color_choices[i]
+		self.value = color_values[i]
+
+		super(printer_3D,self).__init__(name = "3D Printer",
+					 description = "a compact prototyping tool, printing in {0} filament".format(self.color),
+					 value = self.value + randint(-3,3),
+					 size = 11)
 
 
 # ROCKWELL ITEMS
 # --------------
 
-# beaker, microscope, pink chair, smoothie, water bottle (from sustainability office)
+class beaker(item):
+	def __init__(self):
+
+		super(beaker,self).__init__(name = "Beaker",
+					 description = "made of pyrex, stored in one of the eight biology teaching labs",
+					 value = 8 + randint(-2,2),
+					 size = 3)
+
+class microscope(item):
+	def __init__(self):
+
+		super(microscope,self).__init__(name = "Microscope",
+					 description = "part of the largest digital classroom installation in North America",
+					 value = 42 + randint(-4,4),
+					 size = 10)
+
+class pink_chair(item):
+	def __init__(self):
+
+		super(pink_chair,self).__init__(name = "Pink Chair",
+					 description = "a comfortable and vibrant swivel chair in the main atrium",
+					 value = 90 + randint(-8,8),
+					 size = 14)
+
+class smoothie(item):
+	def __init__(self):
+
+		flavor_choices = ["AvoColada", "Beet It", "Sunshine Daydream", "Mint to Be", "Peach Melba"]
+		flavor_values = [5, 12, 18, 25, 30]
+
+		i = randint(0,len(flavor_choices)-1)
+		self.flavor = flavor_choices[i]
+		self.value = flavor_values[i]
+
+		super(smoothie,self).__init__(name = "Smoothie",
+					 description = "the '{0}' from the eco-cafe".format(self.flavor),
+					 value = self.value + randint(-2,2),
+					 size = 5)
+
+class water_bottle(item):
+	def __init__(self):
+
+		super(water_bottle,self).__init__(name = "Water Bottle",
+					 description = "a branded, refillable bottle from the sustainability office",
+					 value = 35 + randint(-3,3),
+					 size = 6)
 
 
 # WATSON ITEMS
 # ------------
 
-# microwave, first-year, toothbrush
+class microwave(item):
+	def __init__(self):
+
+		super(microwave,self).__init__(name = "Microwave",
+					 description = "illegally kept in a student's dorm room",
+					 value = 24 + randint(-3,3),
+					 size = 8)
+
+class first_year(item):
+	def __init__(self):
+
+		super(first_year,self).__init__(name = "First-Year",
+					 description = "a new student, still undecided on major",
+					 value = 50 + randint(-5,5),
+					 size = 16)
+
+class toothbrush(item):
+	def __init__(self):
+
+		super(toothbrush,self).__init__(name = "Toothbrush",
+					 description = "with bright orange bristles",
+					 value = -6 + randint(-2,2),
+					 size = 3)
 
 
 # MARCH FIELD ITEMS
 # -----------------
 
-# frisbee, lawnmower, flower
+class frisbee(item):
+	def __init__(self):
+
+		super(frisbee,self).__init__(name = "Frisbee",
+					 description = "leftover from a recent game of ultimate",
+					 value = 28 + randint(-2,2),
+					 size = 5)
+
+class lawnmower(item):
+	def __init__(self):
+
+		super(lawnmower,self).__init__(name = "Lawnmower",
+					 description = "frequently used by the grounds crew at the earliest hours of the day",
+					 value = 56 + randint(-6,6),
+					 size = 20)
+
+class flower(item):
+	def __init__(self):
+
+		color_choices = ["blue", "white", "purple", "yellow", "orange"]
+		color_values = [18, 8, 15, 20, 10]
+
+		i = randint(0,len(color_choices)-1)
+		self.color = color_choices[i]
+		self.value = color_values[i]
+
+		super(flower,self).__init__(name = "Flower",
+					 description = "{0} in color, from a flowerbed outside Farber".format(self.color),
+					 value = self.value + randint(-2,2),
+					 size = 3)
 
 
 # MARQUIS ITEMS
 # -------------
 
-# crepe, cookie, buffalo wings, mint, squash (Bon Appetit's just for show)
+class crepe(item):
+	def __init__(self):
+
+		flavor_choices = ["sweet", "savory"]
+		flavor_values = [25, 5]
+
+		i = randint(0,len(flavor_choices)-1)
+		self.flavor = flavor_choices[i]
+		self.value = flavor_values[i]
+
+		super(crepe,self).__init__(name = "Crepe",
+					 description = "a {0} Marquis speciality made to order".format(self.flavor),
+					 value = self.value + randint(-3,3),
+					 size = 6)
+
+class cookie(item):
+	def __init__(self):
+
+		super(cookie,self).__init__(name = "Cookie",
+					 description = "from the big glass jar",
+					 value = 15 + randint(-2,2),
+					 size = 3)
+
+class mint(item):
+	def __init__(self):
+
+		super(mint,self).__init__(name = "Mint",
+					 description = "classic red and white starlight mint offered on the way out",
+					 value = -10 + randint(-2,2),
+					 size = 1)
+
+class wings(item):
+	def __init__(self):
+
+		flavor_choices = ["honey barbecue", "buffalo", "teriyaki", "cajun"]
+		flavor_values = [25, 20, 14, 8]
+
+		i = randint(0,len(flavor_choices)-1)
+		self.flavor = flavor_choices[i]
+		self.value = flavor_values[i]
+
+		super(wings,self).__init__(name = "Wings",
+					 description = "a feature at Friday lunches, covered in {0} sauce".format(self.flavor),
+					 value = self.value + randint(-2,2),
+					 size = 4)
+
+class squash(item):
+	def __init__(self):
+
+		super(squash,self).__init__(name = "Squash",
+					 description = "large and inedible - just for show",
+					 value = 65 + randint(-5,5),
+					 size = 10)
 
 
 # KIRBY ITEMS
 # -----------
 
-# painting, bronze bust (in the main lobby of an influential American figure), history book, library ladder, globe
+class painting(item):
+	def __init__(self):
+
+		super(painting,self).__init__(name = "Painting",
+					 description = "of the former chief justice John Marshall",
+					 value = 110 + randint(-10,10),
+					 size = 14)
+
+class bust(item):
+	def __init__(self):
+
+		super(bust,self).__init__(name = "Bust",
+					 description = "a bronze sculpture representing an influential American figure",
+					 value = 58 + randint(-5,5),
+					 size = 11)
+
+class history_book(item):
+	def __init__(self):
+
+		topic_choices = ["the cuban missile crisis", "Turkish nationalism", "criminal justice", "sesame street"]
+		topic_values = [10, 15, 20, -20]
+
+		i = randint(0,len(topic_choices)-1)
+		self.topic = topic_choices[i]
+		self.value = topic_values[i]
+
+		super(history_book,self).__init__(name = "History Book",
+					 description = "a book about '{0}' on a shelf in the law library".format(self.topic),
+					 value = self.value + randint(-2,2),
+					 size = 5)
+
+class ladder(item):
+	def __init__(self):
+
+		super(ladder,self).__init__(name = "Ladder",
+					 description = "for navigating the tall library bookshelves",
+					 value = 80 + randint(-6,6),
+					 size = 26)
+
+class globe(item):
+	def __init__(self):
+
+		super(globe,self).__init__(name = "Globe",
+					 description = "an antique with a textured surface to represent real topography",
+					 value = 60 + randint(-4,4),
+					 size = 9)
 
 
 # SOUTH ITEMS
 # -----------
 
-# piano (from the practice rooms), 420 sign (it's been stolen in the past, trust me), shower curtain, oven
+class piano(item):
+	def __init__(self):
+
+		super(piano,self).__init__(name = "Piano",
+					 description = "a part of each of four practice rooms in the basement",
+					 value = 180 + randint(-12,12),
+					 size = 30)
+
+class sign_420(item):
+	def __init__(self):
+
+		super(sign_420,self).__init__(name = "Room 420 Sign",
+					 description = "it's been stolen in the past, trust me...",
+					 value = -20 + randint(-2,2),
+					 size = 3)
+
+class shower_curtain(item):
+	def __init__(self):
+
+		super(shower_curtain,self).__init__(name = "Shower Curtain",
+					 description = "plain, white, and plastic",
+					 value = 10 + randint(-5,5),
+					 size = 10)
+
+class red_solo(item):
+	def __init__(self):
+
+		super(red_solo,self).__init__(name = "Red Solo Cup",
+					 description = "an inevitable treasure in the largest dorm on campus",
+					 value = 10 + randint(-2,2),
+					 size = 4)
 
 
 # ARTS CAMPUS ITEMS
 # -----------------
 
-# paintbrush, pottery wheel, drafting table, student film, music stand, play script
+class paintbrush(item):
+	def __init__(self):
+
+		super(paintbrush,self).__init__(name = "Paintbrush",
+					 description = "perfect for refining your watercolor skills",
+					 value = 22 + randint(-2,2),
+					 size = 4)
+
+class pottery_wheel(item):
+	def __init__(self):
+
+		super(pottery_wheel,self).__init__(name = "Pottery Wheel",
+					 description = "a fast way for spinning up ceramic cups or bowls",
+					 value = 70 + randint(-5,5),
+					 size = 11)
+
+class drafting_table(item):
+	def __init__(self):
+
+		super(drafting_table,self).__init__(name = "Drafting Table",
+					 description = "an architect essential",
+					 value = 50 + randint(-5,5),
+					 size = 14)
+
+class student_film(item):
+	def __init__(self):
+
+		genre_choices = ["comedy", "drama", "horror film"]
+		genre_values = [-10, 15, 25]
+
+		i = randint(0,len(genre_choices)-1)
+		self.genre = genre_choices[i]
+		self.value = genre_values[i]
+
+		super(student_film,self).__init__(name = "Student Flim",
+					 description = "a {0}, made as a senior capstone project".format(self.genre),
+					 value = self.value + randint(-3,3),
+					 size = 5)
+
+class music_stand(item):
+	def __init__(self):
+
+		super(music_stand,self).__init__(name = "Music Stand",
+					 description = "wait a minute, the music building isn't even part of the arts campus",
+					 value = 20 + randint(-5,5),
+					 size = 8)

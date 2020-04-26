@@ -7,4 +7,6 @@ More specifically, your task is a _treasure hunt_, one of collecting the greates
 
 ## RUN GAME:
 
+Search through 18 campus spaces for the most valuable collection - you have 85 different options to choose from!
+
 [Start Game](https://lafadventure.fainorr.repl.run/)

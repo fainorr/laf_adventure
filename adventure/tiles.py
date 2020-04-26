@@ -6,7 +6,7 @@
 import items, actions, world
 import random
 
-# The base class for all map tiles
+# the base class for all map tiles
 
 class map_tile(object):
 
@@ -73,7 +73,7 @@ class starting_room(campus_space):
         By sunset, you must collect Lafayette's most valuable items - it's President Byerly's request.
         As you exit, you start taking in your environment like never before.
 
-        Before you leave, remember to take your phone! Try picking it up with 'p'.
+        Before you leave, remember to take your phone! Try picking it up with 'p' (note: all commands are not case-sensitive)
         """
 
     def welcome_text(self):
@@ -187,10 +187,10 @@ class pardee(campus_space):
 class zeta_psi(campus_space):
     def __init__(self, x, y):
         self.id = "Zeta Psi"
-        tile_items = [items.pool_table(), items.chef(), items.beer_case(), items.shampoo()]
+        tile_items = [items.pool_table(), items.chef(), items.keg(), items.shampoo(), items.speaker()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,1)):
+        for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -222,8 +222,8 @@ class skillman(campus_space):
     def intro_text(self):
         return """
         The recently rennovated library where a sole 3-D printer endlessly makes unrecognizable
-        objects, students file through the cafe for yet-another coffee punch, and numerous study
-        rooms sit occupied with only a set of unattended books.
+        objects, students file through the cafe for yet-another coffee, and numerous study rooms
+        sit occupied with only a set of unattended books.
         """
 
 # MARKLE
@@ -232,9 +232,9 @@ class skillman(campus_space):
 class markle(campus_space):
     def __init__(self, x, y):
         self.id = "Markle"
-        tile_items = []
+        tile_items = [items.flag(), items.tour_guide(), items.add_drop(), items.brochure()]
 
-        chosen_items = [items.flag(), items.tour_guide(), items.add_drop(), items.brochure()]
+        chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
@@ -277,9 +277,9 @@ class fisher_field(campus_space):
 class bushkill_lot(campus_space):
     def __init__(self, x, y):
         self.id = "Bushkill Lot"
-        tile_items = []
+        tile_items = [items.car(), items.parking_pass(), items.security_cam()]
 
-        chosen_items = [items.car(), items.parking_pass(), items.security_cam()]
+        chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,1)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
@@ -320,7 +320,7 @@ class cht(campus_space):
 class acopian(campus_space):
     def __init__(self, x, y):
         self.id = "Acopian"
-        tile_items = []
+        tile_items = [items.calculator(), items.formula_car(), items.steel_bridge(), items.oscilloscope(), items.raspberry_pi(), items.printer_3D()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -343,7 +343,7 @@ class acopian(campus_space):
 class rockwell(campus_space):
     def __init__(self, x, y):
         self.id = "Rockwell"
-        tile_items = []
+        tile_items = [items.beaker(), items.microscope(), items.pink_chair(), items.smoothie(), items.water_bottle()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -356,8 +356,7 @@ class rockwell(campus_space):
     def intro_text(self):
         return """
         The largest capital project in Lafayette's history provides students with impressive study
-        spaces and new classroom environments - all while consuming little energy and lots of
-        tuition payments.
+        spaces and new classroom environments - all while consuming minimal energy.
         """
 
 # WATSON
@@ -366,10 +365,10 @@ class rockwell(campus_space):
 class watson(campus_space):
     def __init__(self, x, y):
         self.id = "Watson"
-        tile_items = []
+        tile_items = [items.microwave(), items.first_year(), items.toothbrush()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,2)):
+        for pick in range(0,len(tile_items)-random.randint(0,1)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -378,7 +377,8 @@ class watson(campus_space):
 
     def intro_text(self):
         return """
-
+        One of Lafayette's first-year housing options and the site of 'wellness housing', this
+        dorm is one of the most photographed locations on campus.
         """
 
 # MARCH FIELD
@@ -387,10 +387,10 @@ class watson(campus_space):
 class march_field(campus_space):
     def __init__(self, x, y):
         self.id = "March Field"
-        tile_items = []
+        tile_items = [items.flower(), items.lawnmower(), items.frisbee()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,2)):
+        for pick in range(0,len(tile_items)-random.randint(0,1)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -399,7 +399,8 @@ class march_field(campus_space):
 
     def intro_text(self):
         return """
-
+        The original host of Lafayette athletics, this treeless yard is now surrounded by
+        student residences and fraternity houses.
         """
 
 # MARQUIS
@@ -408,7 +409,7 @@ class march_field(campus_space):
 class marquis(campus_space):
     def __init__(self, x, y):
         self.id = "Marquis"
-        tile_items = []
+        tile_items = [items.crepe(), items.cookie(), items.mint(), items.wings(), items.squash()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -420,7 +421,8 @@ class marquis(campus_space):
 
     def intro_text(self):
         return """
-
+        As the largest dining hall on campus, Marquis also offers the most diverse menu in
+        a nice and homey environment - just don't get there late for lunch.
         """
 
 # KIRBY
@@ -429,7 +431,7 @@ class marquis(campus_space):
 class kirby(campus_space):
     def __init__(self, x, y):
         self.id = "Kirby"
-        tile_items = []
+        tile_items = [items.painting(), items.history_book(), items.bust(), items.ladder(), items.globe()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -441,7 +443,9 @@ class kirby(campus_space):
 
     def intro_text(self):
         return """
-
+        Donated by a highly successful entrepreneur, this building was a controversial Lafayette
+        enterprise that has now turned into an iconic site for the government and law department,
+        featuring a grand library and historical artifacts.
         """
 
 # SOUTH
@@ -450,10 +454,10 @@ class kirby(campus_space):
 class south(campus_space):
     def __init__(self, x, y):
         self.id = "South"
-        tile_items = []
+        tile_items = [items.piano(), items.sign_420(), items.shower_curtain(), items.red_solo()]
 
         chosen_items = []
-        for pick in range(0,len(tile_items)-random.randint(0,2)):
+        for pick in range(0,len(tile_items)-random.randint(0,1)):
             choice = random.choice(tile_items)
             tile_items.remove(choice)
             chosen_items.append(choice)
@@ -462,7 +466,9 @@ class south(campus_space):
 
     def intro_text(self):
         return """
-
+        South hall is the largest residence hall on campus, originally designed and constructed
+        by Lafayette's first president George Junkin in the 1830s.  Now it offers large rooms
+        and equally large freshmen gatherings in its new basement.
         """
 
 # ARTS CAMPUS
@@ -471,7 +477,7 @@ class south(campus_space):
 class arts_campus(campus_space):
     def __init__(self, x, y):
         self.id = "The Arts Campus"
-        tile_items = []
+        tile_items = [items.paintbrush(), items.pottery_wheel(), items.drafting_table(), items.student_film(), items.music_stand()]
 
         chosen_items = []
         for pick in range(0,len(tile_items)-random.randint(0,2)):
@@ -483,5 +489,6 @@ class arts_campus(campus_space):
 
     def intro_text(self):
         return """
-
+        Comprised of four buildings, the arts campus off the hill offers collarborative studio spaces
+        for film, performing arts, and visual arts and showcases plenty of student artwork year-round.
         """
