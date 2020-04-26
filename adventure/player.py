@@ -173,7 +173,7 @@ class Player():
 				if requested_pickup.lower() == item.name.lower():
 					item_match = True
 					pickup_item = item
-					if item.size + inv_filled < 100:
+					if item.size + inv_filled <= 100:
 						space_left = True
 
 			# if input matches, add to inventory if space left and remove from tile; otherwise, print error message

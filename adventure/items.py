@@ -607,7 +607,7 @@ class steel_bridge(item):
 	def __init__(self):
 
 		super(steel_bridge,self).__init__(name = "Steel Bridge",
-					 description = "hanging in the entrance for it's first-place finish at the national competition",
+					 description = "hanging in the entrance for its first-place finish at the national competition",
 					 value = 185 + randint(-10,10),
 					 size = 36)
 
@@ -939,7 +939,7 @@ class student_film(item):
 		self.genre = genre_choices[i]
 		self.value = genre_values[i]
 
-		super(student_film,self).__init__(name = "Student Flim",
+		super(student_film,self).__init__(name = "Student Film",
 					 description = "a {0}, made as a senior capstone project".format(self.genre),
 					 value = self.value + randint(-3,3),
 					 size = 5)

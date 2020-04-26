@@ -79,9 +79,9 @@ class starting_room(campus_space):
     def welcome_text(self):
         return """
 
-        ----------------------------------------------
-        Welcome to the Virtual Lafyette Treasure Hunt!
-        ----------------------------------------------
+        -----------------------------------------------
+        Welcome to the Virtual Lafayette Treasure Hunt!
+        -----------------------------------------------
 
         Fit for anyone familiar with the quips and quirks of Lafayette College, this interactive
         choose-your-own-adventure will take you all around campus (as if you were there in person!).
@@ -200,7 +200,7 @@ class zeta_psi(campus_space):
     def intro_text(self):
         return """
         Lafayette's newest fraternity, re-chartered in 2018 after a five-year suspension, is
-        back in full-swing with it's house dog Miss Pineapple!
+        back in full-swing with its house dog Miss Pineapple!
         """
 
 # SKILLMAN
