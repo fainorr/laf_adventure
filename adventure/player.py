@@ -207,15 +207,22 @@ class Player():
 			value_per_size.append(float(item.value)/float(item.size))
 
 
-		# find most valuable item
+		# find most and least valuable item
 		most_valuable_i  = 0
+		least_valuable_i = 0
 		highest_value = value_per_size[0]
+		lowest_value = value_per_size[0]
 		if len(value_per_size) > 1:
 			for i in range(1,len(value_per_size)):
 				if value_per_size[i] > highest_value:
 					highest_value = value_per_size[i]
 					most_valuable_i = i
+				if value_per_size[i] < lowest_value:
+					lowest_value = value_per_size[i]
+					least_valuable_i = i
+
 		most_valuable_item = self.inventory[most_valuable_i].name
+		least_valuable_item = self.inventory[least_valuable_i].name
 
 		player_name = str(raw_input("\nPlease enter your name: "))
 
@@ -231,7 +238,8 @@ class Player():
 		print("        ------------\n")
 
 		# show most valuable item
-		print("        Your most valuable item was '{0}'!\n\n".format(most_valuable_item))
+		print("        Your most valuable item was '{0}'!\n".format(most_valuable_item))
+		print("        Your least valuable item was '{0}'!\n\n".format(leatst_valuable_item))
 
 		# show updated leaderboard
 		leaderboard.show_leaderboard(player_name, final_score)
