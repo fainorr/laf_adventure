@@ -239,7 +239,7 @@ class Player():
 
 		# show most valuable item
 		print("        Your most valuable item was '{0}'!\n".format(most_valuable_item))
-		print("        Your least valuable item was '{0}'!\n\n".format(leatst_valuable_item))
+		print("        Your least valuable item was '{0}'!\n\n".format(least_valuable_item))
 
 		# show updated leaderboard
 		leaderboard.show_leaderboard(player_name, final_score)
